@@ -19,8 +19,16 @@ namespace WebApplication3
 
         protected void btnKayıt_Click(object sender, EventArgs e)
         {
-            using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["SQL TutorialConnectionString"].ConnectionString))
+            if(txtKullanıcıAdı.Text == "" || txtŞifre.Text == "")
             {
+                lblSonuç.Text = "Kullanıcı adı ya da şifre girmediniz";
+                return;
+            }
+
+            using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["UserInfoConnectionString"].ConnectionString))
+            {
+                myConnection.Open();
+
                 string query1 = "Insert into [dbo].[Login] (username,password) Values (@username,@password)";
                 string query2 = "Select username from [dbo].[Login] where username = @username";
 
@@ -30,8 +38,6 @@ namespace WebApplication3
                 insertCommand.Parameters.AddWithValue("@username", txtKullanıcıAdı.Text);
                 insertCommand.Parameters.AddWithValue("@password", txtŞifre.Text);
                 selectCommand.Parameters.AddWithValue("@username", txtKullanıcıAdı.Text);
-
-                myConnection.Open();
 
                 String result = selectCommand.ExecuteScalar() as String;
 
