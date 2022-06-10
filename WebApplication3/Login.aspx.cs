@@ -24,7 +24,7 @@ namespace WebApplication3
                 return;
             }
 
-            using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["UserInfoConnectionString2"].ConnectionString))
+            using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["UserInfoConnectionString"].ConnectionString))
             {
                 myConnection.Open();
 

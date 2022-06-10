@@ -21,10 +21,12 @@
         <br />
         <br />
         <asp:Button ID="btnGiriş" runat="server" OnClick="btnGiriş_Click" Text="Giriş" />
-        <asp:SqlDataSource ID="Sample" runat="server" ConnectionString="<%$ ConnectionStrings:UserInfoConnectionString2 %>" SelectCommand="SELECT * FROM [Login]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="Sample" runat="server" ConnectionString="<%$ ConnectionStrings:UserInfoConnectionString %>" SelectCommand="SELECT * FROM [Login]"></asp:SqlDataSource>
         <br />
         <br />
         <asp:HyperLink ID="lnkKayıt" NavigateUrl="~/Register.aspx" runat="server">Kayıt Ol</asp:HyperLink>
+        <br />
+        <asp:HyperLink ID="lnkBilgi" NavigateUrl="~/Information.aspx" runat="server">Tüm Kullanıcı Bilgileri</asp:HyperLink>
         <br />
         <asp:Label ID="lblSonuç" runat="server" Text=""></asp:Label>
     </form>
